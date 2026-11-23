@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>祖父母のスマホ(iPhone) Googleフォト共有設定手順</title>
+<style>
+  :root {
+    /* Color Palette - Light Mode */
+    --bg-base: #f3f4f6;
+    --bg-content: #ffffff;
+    --text-main: #1f2937;
+    --text-muted: #4b5563;
+    --border-color: #e5e7eb;
+    
+    --primary-color: #2563eb;
+    --primary-bg: #dbeafe;
+    
+    --danger-color: #dc2626;
+    --danger-bg: #fee2e2;
+    --danger-border: #fca5a5;
+    
+    --wife-color: #db2777;
+    --wife-bg: #fce7f3;
+    
+    --you-color: #059669;
+    --you-bg: #d1fae5;
+    
+    --album-color: #f59e0b;
+    --album-bg: #fef3c7;
+    
+    --check-border: #9ca3af;
+    
+    /* Spacing & Misc */
+    --sp-sm: 8px;
+    --sp-md: 16px;
+    --sp-lg: 24px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      /* Color Palette - Dark Mode */
+      --bg-base: #111827;
+      --bg-content: #1f2937;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --border-color: #374151;
+      
+      --primary-color: #60a5fa;
+      --primary-bg: #1e3a8a;
+      
+      --danger-color: #f87171;
+      --danger-bg: #7f1d1d;
+      --danger-border: #991b1b;
+      
+      --wife-color: #f472b6;
+      --wife-bg: #831843;
+      
+      --you-color: #34d399;
+      --you-bg: #064e3b;
+      
+      --album-color: #fbbf24;
+      --album-bg: #78350f;
+      
+      --check-border: #4b5563;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-base);
+    color: var(--text-main);
+    line-height: 1.6;
+    font-size: 16px;
+    padding: var(--sp-md);
+  }
+
+  main {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--bg-content);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+    padding: var(--sp-lg) var(--sp-md);
+    background-color: var(--primary-bg);
+    color: var(--primary-color);
+    text-align: center;
+    border-bottom: 2px solid var(--primary-color);
+  }
+
+  section {
+    padding: var(--sp-lg) var(--sp-md);
+    border-bottom: 1px solid var(--border-color);
+  }
+  section:last-child {
+    border-bottom: none;
+  }
+
+  h2 {
+    font-size: 1.15rem;
+    margin-bottom: var(--sp-md);
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  h3 {
+    font-size: 1.05rem;
+    margin-bottom: var(--sp-sm);
+  }
+
+  p {
+    margin-bottom: var(--sp-sm);
+    color: var(--text-muted);
+  }
+
+  strong {
+    color: var(--text-main);
+    font-weight: 600;
+  }
+
+  ul, ol {
+    margin-left: var(--sp-lg);
+    margin-bottom: var(--sp-sm);
+    color: var(--text-muted);
+  }
+  li {
+    margin-bottom: 4px;
+  }
+
+  /* SVG Icons */
+  .icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+
+  /* 1. Overview Diagram */
+  .diagram-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-sm);
+    background-color: var(--bg-base);
+    padding: var(--sp-md);
+    border-radius: var(--radius-md);
+  }
+  
+  .role-box {
+    width: 100%;
+    max-width: 280px;
+    padding: var(--sp-sm) var(--sp-md);
+    border-radius: var(--radius-md);
+    text-align: center;
+    border: 2px solid transparent;
+  }
+  
+  .role-box strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+  }
+  
+  .role-box p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: inherit;
+    opacity: 0.9;
+  }
+
+  .box-adder {
+    background-color: var(--you-bg);
+    color: var(--you-color);
+    border-color: var(--you-color);
+  }
+  
+  .box-album {
+    background-color: var(--album-bg);
+    color: var(--album-color);
+    border-color: var(--album-color);
+    border-style: dashed;
+  }
+  
+  .box-viewer {
+    background-color: var(--bg-content);
+    color: var(--text-main);
+    border-color: var(--text-muted);
+  }
+
+  .arrow-down {
+    width: 24px;
+    height: 24px;
+    fill: var(--text-muted);
+  }
+
+  /* 2. Important Card */
+  .alert-card {
+    background-color: var(--danger-bg);
+    border: 2px solid var(--danger-border);
+    border-radius: var(--radius-md);
+    padding: var(--sp-md);
+  }
+  
+  .alert-card .alert-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--danger-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: var(--sp-sm);
+  }
+  
+  .alert-card p {
+    color: var(--text-main);
+    margin: 0;
+  }
+
+  /* 3. Steps Timeline */
+  .steps-desc {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--text-main);
+    margin-bottom: var(--sp-md);
+    padding-left: var(--sp-sm);
+    border-left: 4px solid var(--primary-color);
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+  
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 14px;
+    width: 2px;
+    background-color: var(--border-color);
+  }
+
+  .step {
+    position: relative;
+    margin-bottom: var(--sp-lg);
+  }
+  
+  .step:last-child {
+    margin-bottom: 0;
+  }
+
+  .step-num {
+    position: absolute;
+    left: -32px;
+    top: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--bg-content);
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    z-index: 1;
+  }
+
+  .step-content {
+    background-color: var(--bg-base);
+    padding: var(--sp-md);
+    border-radius: var(--radius-md);
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: var(--sp-sm);
+  }
+  .badge-wife {
+    background-color: var(--wife-bg);
+    color: var(--wife-color);
+  }
+  .badge-you {
+    background-color: var(--you-bg);
+    color: var(--you-color);
+  }
+  .badge-important {
+    background-color: var(--danger-color);
+    color: white;
+    margin-left: 8px;
+  }
+
+  /* Flow UI (for settings path) */
+  .flow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--bg-content);
+    padding: var(--sp-sm) var(--sp-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    margin: var(--sp-sm) 0;
+    font-size: 0.9rem;
+  }
+  
+  .flow-item {
+    font-weight: 500;
+    color: var(--text-main);
+  }
+  
+  .flow-arrow {
+    width: 16px;
+    height: 16px;
+    fill: var(--text-muted);
+  }
+
+  .caution-box {
+    margin-top: var(--sp-sm);
+    padding: var(--sp-sm);
+    border-left: 4px solid var(--danger-color);
+    background-color: var(--bg-content);
+    font-size: 0.9rem;
+  }
+
+  .example-box {
+    margin-top: var(--sp-sm);
+    padding: var(--sp-sm) var(--sp-md);
+    background-color: var(--bg-content);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-md);
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: var(--text-main);
+  }
+
+  .success-text {
+    margin-top: var(--sp-md);
+    color: var(--you-color);
+    font-weight: bold;
+    text-align: center;
+  }
+
+  /* 4. Grandparents Guide */
+  .guide-card, .no-touch-card {
+    background-color: var(--bg-base);
+    border-radius: var(--radius-md);
+    padding: var(--sp-md);
+    margin-bottom: var(--sp-md);
+  }
+  
+  .guide-card {
+    border-left: 4px solid var(--primary-color);
+  }
+  
+  .guide-card h3 {
+    color: var(--primary-color);
+  }
+  
+  .quote {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--text-main);
+    padding: var(--sp-sm);
+    background-color: var(--bg-content);
+    border-radius: var(--radius-md);
+    text-align: center;
+  }
+
+  .no-touch-card {
+    border-left: 4px solid var(--text-muted);
+  }
+  
+  .no-touch-card h3 {
+    color: var(--text-muted);
+  }
+
+  .no-touch-list {
+    list-style: none;
+    margin-left: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 8px;
+  }
+  
+  .no-touch-list li {
+    background-color: var(--bg-content);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--border-color);
+  }
+  
+  .no-touch-list li::before {
+    content: '×';
+    color: var(--danger-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
+  .no-touch-note {
+    margin-top: var(--sp-sm);
+    font-size: 0.85rem;
+  }
+
+  /* 5. Checklist */
+  .checklist-wrapper {
+    background-color: var(--bg-base);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-top: var(--sp-md);
+  }
+  
+  .checklist-header {
+    background-color: var(--border-color);
+    color: var(--text-main);
+    padding: var(--sp-sm) var(--sp-md);
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .checklist {
+    list-style: none;
+    margin: 0;
+    padding: var(--sp-sm) var(--sp-md);
+  }
+  
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: var(--sp-sm) 0;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-main);
+    font-size: 0.95rem;
+  }
+  
+  .checklist li:last-child {
+    border-bottom: none;
+  }
+  
+  .check-box {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--check-border);
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    background-color: var(--bg-content);
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <h1>祖父母のiPhone<br>Googleフォト共有設定手順</h1>
+
+  <section>
+    <h2>1. 全体の役割（目指す状態）</h2>
+    <div class="diagram-container">
+      <div class="role-box box-adder">
+        <strong>あなた・奥さま</strong>
+        <p>写真を追加する人</p>
+      </div>
+      
+      <svg class="arrow-down" viewBox="0 0 24 24">
+        <path d="M12 4v14m0 0l-6-6m6 6l6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      
+      <div class="role-box box-album">
+        <strong>共有アルバム</strong>
+        <p>孫2人の写真</p>
+      </div>
+      
+      <svg class="arrow-down" viewBox="0 0 24 24">
+        <path d="M12 4v14m0 0l-6-6m6 6l6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      
+      <div class="role-box box-viewer">
+        <strong>妻の父・母 (祖父母)</strong>
+        <p>Googleフォトを開いて<br><strong>見るだけ（閲覧専用）</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>2. 設定における最重要ポイント</h2>
+    <div class="alert-card">
+      <div class="alert-title">
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        バックアップは必ず「OFF」に！
+      </div>
+      <p>祖父母は孫の写真を見るだけの<strong>「閲覧専用」</strong>です。iPhone内の自分たちの写真をGoogleフォトへバックアップする必要はありません。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>3. 設定手順（6ステップ）</h2>
+    <p class="steps-desc">対象：奥さまの父・母の2人（どちらもiPhone）<br>※奥さまが2台まとめて設定するのが最も簡単です。</p>
+    
+    <div class="timeline">
+      <!-- Step 1 -->
+      <article class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <span class="badge badge-wife">奥さまの作業</span>
+          <h3>各iPhoneでGoogleアカウントの有無を確認</h3>
+          <ul>
+            <li>Gmail・YouTube・マップ等を開き、ログイン済みか確認します。</li>
+            <li><strong>すでにある場合：</strong> 新しく作らず、そのアカウントを使います。</li>
+            <li><strong>ない場合：</strong> Safari等から新規作成します。<br>
+              <small>※普段使っているiCloudメールなど、既存のメールアドレスを使って作成可能です（推奨）。</small>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Step 2 -->
+      <article class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <span class="badge badge-wife">奥さまの作業</span>
+          <h3>Googleフォトをインストール</h3>
+          <ul>
+            <li>App Storeから「Googleフォト」を入手します。</li>
+            <li>起動後、手順1で確認・作成した<strong>本人のGoogleアカウント</strong>でログインします。</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Step 3 -->
+      <article class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <span class="badge badge-wife">奥さまの作業</span>
+          <h3>バックアップ設定をOFFにする <span class="badge badge-important">重要</span></h3>
+          <p>以下の順にタップして設定します。</p>
+          <div class="flow">
+            <span class="flow-item">右上プロフィール画像</span>
+            <svg class="flow-arrow" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+            <span class="flow-item">Googleフォトの設定</span>
+            <svg class="flow-arrow" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+            <span class="flow-item">バックアップ</span>
+            <svg class="flow-arrow" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+            <strong style="color: var(--danger-color);">OFF</strong>
+          </div>
+          <div class="caution-box">
+            <strong>【注意】</strong><br>
+            初期設定中に「バックアップをオンにしますか？」と出ても、<strong>ONにしないでください</strong>。<br>
+            <small>※iPhone側でiCloud写真を使っている場合、Googleフォトまで自動バックアップする必要はありません。</small>
+          </div>
+        </div>
+      </article>
+
+      <!-- Step 4 -->
+      <article class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <span class="badge badge-wife">奥さまの作業</span>
+          <h3>2人のGoogleアカウントをあなたに送る</h3>
+          <p>LINE等で、確認したアカウント（メールアドレス）を送ります。</p>
+          <div class="example-box">
+            例）<br>
+            父：入力例：xxxxx@icloud.com<br>
+            母：入力例：yyyyy@gmail.com
+          </div>
+        </div>
+      </article>
+
+      <!-- Step 5 -->
+      <article class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <span class="badge badge-you">あなたの作業</span>
+          <h3>2人を共有アルバムに追加</h3>
+          <p>あなたのスマホで、すでに作成済みの共有アルバムを開きます。</p>
+          <div class="flow">
+            <span class="flow-item">共有</span>
+            <svg class="flow-arrow" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+            <span class="flow-item">父のアカウントを追加</span>
+            <svg class="flow-arrow" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+            <span class="flow-item">母のアカウントを追加</span>
+          </div>
+          <p><small>※今回も、リンク共有はOFFのままで構いません。</small></p>
+        </div>
+      </article>
+
+      <!-- Step 6 -->
+      <article class="step">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <span class="badge badge-wife">奥さまの作業</span>
+          <h3>祖父母のiPhoneでアルバムを一度開く</h3>
+          <ul>
+            <li>あなたが共有した後、それぞれのiPhoneでGoogleフォトを開きます。</li>
+            <li>共有されたアルバムを開き、<strong>孫2人の写真が表示されること</strong>を確認します。</li>
+          </ul>
+          <p class="success-text">🎉 ここまでできれば初期設定はほぼ終了です！</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>4. 祖父母への説明</h2>
+    <div class="guide-card">
+      <h3>伝えたいことはこれだけ</h3>
+      <p class="quote">「Googleフォトのアプリを開けば、孫2人の写真を見られるよ」</p>
+    </div>
+    
+    <div class="no-touch-card">
+      <h3>以下は基本的に触らなくて大丈夫です</h3>
+      <ul class="no-touch-list">
+        <li>バックアップ</li>
+        <li>写真の追加</li>
+        <li>写真の削除</li>
+        <li>「保存」</li>
+        <li>アルバムの共有</li>
+        <li>リンク作成</li>
+      </ul>
+      <p class="no-touch-note">※「閲覧のみ」として使ってもらいます。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>5. 奥さま用の最短チェックリスト</h2>
+    <div class="checklist-wrapper">
+      <div class="checklist-header">お義父さまのiPhone / お義母さまのiPhone<br>（それぞれで実施）</div>
+      <ul class="checklist">
+        <li><div class="check-box"></div> <div>Googleアカウント確認／なければ作成</div></li>
+        <li><div class="check-box"></div> <div>Googleフォトをインストール</div></li>
+        <li><div class="check-box"></div> <div>本人のGoogleアカウントでログイン</div></li>
+        <li><div class="check-box"></div> <div><strong style="color: var(--danger-color);">バックアップOFF</strong></div></li>
+        <li><div class="check-box"></div> <div>Googleアカウントのメールアドレスをあなたへ送る</div></li>
+        <li><div class="check-box"></div> <div><small>（あなたが共有アルバムに招待するのを待つ）</small></div></li>
+        <li><div class="check-box"></div> <div>Googleフォトでアルバムを開いて表示確認</div></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>
+```eof
